@@ -17,6 +17,8 @@ public class binToDec {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your binary number : ");
         int binaryNumber = sc.nextInt();
+        // validate correct binary.
+        
         System.out.println(binaryNumber + " ---> " + binToDecimal(binaryNumber));
     }
 }
