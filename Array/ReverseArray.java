@@ -3,11 +3,13 @@ package Array;
 import java.util.Scanner;
 
 public class ReverseArray {
+    
     static void swap(int[] arr , int idx , int last_idx){
         int temp = arr[idx];
         arr[idx] = arr[last_idx];
         arr[last_idx] = temp;
     }
+    //! Reverse array using swaping funcanility.
     static void reverseArray(int[] arr){
         int last_idx = arr.length-1;
         for(int i=0; i<arr.length/2; i++){
