@@ -176,6 +176,14 @@ class ArrayWithRecursion{
     }
 
     //code for binary search in array.
+    public static boolean binarySearch(int arr[], int stIdx, int endIdx, int target){
+        if(stIdx > endIdx) return false;
+        int middle = (stIdx+endIdx)/2;
+        if(arr[middle] == target) return true;
+        if(target < arr[middle]) return binarySearch(arr,stIdx,middle-1,target);
+        else return binarySearch(arr,middle+1, arr.length-1,target);
+
+    }
 
 
     public static void main(String[] args) {
@@ -188,9 +196,12 @@ class ArrayWithRecursion{
 //        printArr(arr, arr.length);
 
 
+//        System.out.println("Enter the value for search : ");
+//        int target = sc.nextInt();
+//        System.out.println(linearSearch(arr,arr.length-1,target));
         System.out.println("Enter the value for search : ");
         int target = sc.nextInt();
-        System.out.println(linearSearch(arr,arr.length-1,target));
+        System.out.println(binarySearch(arr,0,arr.length-1,target));
 
     }
 }
