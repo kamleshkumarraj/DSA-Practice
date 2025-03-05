@@ -2,6 +2,8 @@ package Recursion.src;
 
 import org.w3c.dom.ls.LSOutput;
 
+import java.security.spec.RSAOtherPrimeInfo;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class recursion {
@@ -185,6 +187,20 @@ class ArrayWithRecursion{
 
     }
 
+    public static int sumOfArray(int arr[], int len){
+        if(len == 0) return arr[0];
+        return arr[len] + sumOfArray(arr,len-1);
+    }
+
+    public static int prefixSum(int arr[], int len,int ans[]){
+        if(len == 0) {
+            ans[len] = arr[0];
+            return arr[0];
+        };
+        return ans[len] = prefixSum(arr,len-1,ans)+arr[len];
+
+    }
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -199,9 +215,12 @@ class ArrayWithRecursion{
 //        System.out.println("Enter the value for search : ");
 //        int target = sc.nextInt();
 //        System.out.println(linearSearch(arr,arr.length-1,target));
-        System.out.println("Enter the value for search : ");
-        int target = sc.nextInt();
-        System.out.println(binarySearch(arr,0,arr.length-1,target));
+//        System.out.println("Enter the value for search : ");
+//        int target = sc.nextInt();
+//        System.out.println(binarySearch(arr,0,arr.length-1,target));
+        int ans[] = new int[arr.length];
+        prefixSum(arr,arr.length-1,ans);
+        printArr(ans,arr.length);
 
     }
 }
