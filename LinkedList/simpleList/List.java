@@ -126,6 +126,15 @@ public class List {
         size--;
     }
 
+    public void deleteNode(int data){
+        int idx = this.getIdx(data);
+        if(idx==-1){
+            System.out.println("Node doesn't exist in list !");
+            return;
+        }
+        this.deleteAtIdx(idx);
+    }
+
     // method for return the size of the list.
     public int count(){
         return size;
@@ -144,7 +153,7 @@ public class List {
         list.insertNode(60);
 
         list.printList();
-        list.deleteAtIdx(10);
+        list.deleteNode(60);
         list.printList();
 //
 //        list.insertAtBeginning(10);
