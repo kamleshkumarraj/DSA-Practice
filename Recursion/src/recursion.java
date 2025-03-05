@@ -187,17 +187,36 @@ class ArrayWithRecursion{
 
     }
 
+    // code for find the sum of the array
     public static int sumOfArray(int arr[], int len){
         if(len == 0) return arr[0];
         return arr[len] + sumOfArray(arr,len-1);
     }
 
+    // code for creating the prefix sum of an array.
     public static int prefixSum(int arr[], int len,int ans[]){
         if(len == 0) {
             ans[len] = arr[0];
             return arr[0];
         };
         return ans[len] = prefixSum(arr,len-1,ans)+arr[len];
+
+    }
+
+    // code for suffix sum of an array.
+    public static int suffixSum(int arr[], int len, int ans[]){
+        if(len == arr.length-1) return ans[len] = arr[len];
+        return ans[len] = arr[len]+suffixSum(arr, len+1,ans);
+    }
+
+    // code for find maximum element from an array;
+    public static int findMax(int arr[], int max, int len){
+        if(len == 0){
+            if(max < arr[0]) max = arr[0];
+            return max;
+        };
+        if(arr[len] > max) max=arr[len];
+        return findMax(arr,max, len-1);
 
     }
 
@@ -218,9 +237,16 @@ class ArrayWithRecursion{
 //        System.out.println("Enter the value for search : ");
 //        int target = sc.nextInt();
 //        System.out.println(binarySearch(arr,0,arr.length-1,target));
-        int ans[] = new int[arr.length];
-        prefixSum(arr,arr.length-1,ans);
-        printArr(ans,arr.length);
+//        int ans[] = new int[arr.length];
+//        prefixSum(arr,arr.length-1,ans);
+//        printArr(ans,arr.length);
+
+//        int ans[] = new int[arr.length];
+//        suffixSum(arr,0,ans);
+//        printArr(ans,arr.length);
+
+        int ans = findMax(arr,Integer.MIN_VALUE, arr.length-1);
+        System.out.println("Maximum number is : "+ans);
 
     }
 }
