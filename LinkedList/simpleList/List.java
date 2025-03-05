@@ -105,6 +105,27 @@ public class List {
         size--;
     }
 
+    public void deleteAtIdx(int idx){
+        if(idx < 0 || idx > this.count() -1){
+            System.out.println("Please send valid index !");
+            return;
+        }
+        if(idx == 0) {
+            this.shift();
+            return;
+        }
+        if(idx==this.count()-1){
+            this.pop();
+            return;
+        }
+        Node temp = head;
+        for(int i=1; i<idx; i++){
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+        size--;
+    }
+
     // method for return the size of the list.
     public int count(){
         return size;
@@ -121,16 +142,20 @@ public class List {
         list.insertNode(40);
         list.insertNode(50);
         list.insertNode(60);
+
+        list.printList();
+        list.deleteAtIdx(10);
+        list.printList();
 //
 //        list.insertAtBeginning(10);
 //        list.insertAtBeginning(0);
-        System.out.println(list.count());
-        list.printList();
-        System.out.println(list.getIdx(90));
-
-        list.shift();
-        System.out.println(list.count());
-        list.printList();
+//        System.out.println(list.count());
+//        list.printList();
+//        System.out.println(list.getIdx(90));
+//
+//        list.shift();
+//        System.out.println(list.count());
+//        list.printList();
 //
 //        list.insertAtIndex(80,7);
 //        list.printList();
