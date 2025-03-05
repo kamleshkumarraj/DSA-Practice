@@ -142,6 +142,27 @@ public class List {
         System.out.print(temp.data+" ");
     }
 
+    public void replaceValue(int data, int newVal){
+        int idx = this.getIdx(data);
+        if(idx == -1){
+            System.out.println("Element doesn't exist in node !");
+            return;
+        }
+        Node temp = head;
+        for(int i=1; i<=idx; i++) temp = temp.next;
+        temp.data = newVal;
+        return;
+    }
+
+    // method for reverse the list;
+//    public void reverseList(){
+//       Node temp1 = head;
+//       for(int i=1; i<=this.size/2; i++){
+//
+//       }
+//
+//    }
+
     // method for return the size of the list.
     public int count(){
         return size;
@@ -162,7 +183,9 @@ public class List {
         list.printList();
 //        list.deleteNode(60);
 //        list.printList();
-        list.printReverseList(list.head);
+//        list.printReverseList(list.head);
+        list.replaceValue(10,90);
+        list.printList();
 //
 //        list.insertAtBeginning(10);
 //        list.insertAtBeginning(0);
