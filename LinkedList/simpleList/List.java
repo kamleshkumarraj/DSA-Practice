@@ -77,7 +77,6 @@ public class List {
         temp.next = null;
         tail = temp;
         this.size -= this.size;
-
     }
 
     public int getIdx(int data){
@@ -89,6 +88,21 @@ public class List {
         }
         if(idx == this.count()) return -1;
         return idx;
+    }
+
+    public void shift(){
+        if(this.count() == 0){
+            System.out.println("List already empty !");
+            return;
+        }
+        if(this.count() == 1){
+            head = null;
+            tail = null;
+            size--;
+            return;
+        }
+        head = head.next;
+        size--;
     }
 
     // method for return the size of the list.
@@ -110,8 +124,13 @@ public class List {
 //
 //        list.insertAtBeginning(10);
 //        list.insertAtBeginning(0);
+        System.out.println(list.count());
         list.printList();
         System.out.println(list.getIdx(90));
+
+        list.shift();
+        System.out.println(list.count());
+        list.printList();
 //
 //        list.insertAtIndex(80,7);
 //        list.printList();
