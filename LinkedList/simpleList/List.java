@@ -5,6 +5,7 @@ public class List {
     Node tail;
     int size = 0;
 
+    // method for print the list in console.
     public void printList(){
         Node temp = this.head;
         while(temp != null){
@@ -14,6 +15,7 @@ public class List {
         System.out.println();
     }
 
+    // method for insert node at the end of the list.
     public void insertNode(int data){
         Node temp = new Node(data);
         if(head == null) head = temp;
@@ -22,6 +24,7 @@ public class List {
         this.size++;
     }
 
+    // method for insert node at the starting of the list.
     public void insertAtBeginning(int data){
         Node temp = new Node(data);
         if(head == null) head = temp;
@@ -77,33 +80,47 @@ public class List {
 
     }
 
+    public int getIdx(int data){
+        Node temp=head;
+        int idx=0;
+        while (temp!=null && temp.data != data) {
+            temp = temp.next;
+            idx++;
+        }
+        if(idx == this.count()) return -1;
+        return idx;
+    }
 
+    // method for return the size of the list.
     public int count(){
         return size;
     }
+
+
     
     public static void main(String[] args) {
 
 
         List list = new List();
         list.insertNode(20);
-//        list.insertNode(30);
-//        list.insertNode(40);
-//        list.insertNode(50);
-//        list.insertNode(60);
+        list.insertNode(30);
+        list.insertNode(40);
+        list.insertNode(50);
+        list.insertNode(60);
 //
 //        list.insertAtBeginning(10);
 //        list.insertAtBeginning(0);
         list.printList();
+        System.out.println(list.getIdx(90));
 //
 //        list.insertAtIndex(80,7);
 //        list.printList();
 
-        list.pop();
-        list.printList();
-
-        list.pop();
-        list.printList();
+//        list.pop();
+//        list.printList();
+//
+//        list.pop();
+//        list.printList();
 
 //        list.insertAtIndex(70,4);
 //        list.printList();
