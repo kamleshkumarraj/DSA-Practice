@@ -135,6 +135,13 @@ public class List {
         this.deleteAtIdx(idx);
     }
 
+    // recursive print the reverse list.
+    public void printReverseList(Node temp){
+        if(temp == null) return;
+        printReverseList(temp.next);
+        System.out.print(temp.data+" ");
+    }
+
     // method for return the size of the list.
     public int count(){
         return size;
@@ -153,8 +160,9 @@ public class List {
         list.insertNode(60);
 
         list.printList();
-        list.deleteNode(60);
-        list.printList();
+//        list.deleteNode(60);
+//        list.printList();
+        list.printReverseList(list.head);
 //
 //        list.insertAtBeginning(10);
 //        list.insertAtBeginning(0);
