@@ -163,7 +163,7 @@ public class recursion {
 
 class ArrayWithRecursion{
 
-    // print array funcnility for array.
+    // print array functionality for array.
     public static void printArr(int arr[], int n){
         if(n<=0) return;
         printArr(arr,--n);
@@ -219,6 +219,7 @@ class ArrayWithRecursion{
         return findMax(arr,max, len-1);
 
     }
+
 
 
     public static void main(String[] args) {
