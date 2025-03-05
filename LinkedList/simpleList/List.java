@@ -31,8 +31,14 @@ public class List {
     }
 
     public void insertAtIndex(int data, int idx){
-        if(idx==0) this.insertAtBeginning(data);
-        if(idx== this.count()) this.insertNode(data);
+        if(idx==0) {
+            this.insertAtBeginning(data);
+            return;
+        };
+        if(idx== this.count()) {
+            this.insertNode(data);
+            return;
+        };
         Node temp = new Node(data);
         Node temp1 = head;
         for(int i=1; i<idx; i++){
@@ -60,5 +66,17 @@ public class List {
         list.insertAtBeginning(0);
 
         list.printList();
+
+        list.insertAtIndex(80,7);
+        list.printList();
+
+//        list.insertAtIndex(70,4);
+//        list.printList();
+//
+//        list.insertAtIndex(80,7);
+//        list.printList();
+
+//        list.insertAtIndex(90,7);
+//        list.printList();
     }
 }
