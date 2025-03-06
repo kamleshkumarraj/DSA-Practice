@@ -154,18 +154,19 @@ public class List {
         return;
     }
 
-    // method for reverse the list;
-//    public void reverseList(){
-//       Node temp1 = head;
-//       for(int i=1; i<=this.size/2; i++){
-//
-//       }
-//
-//    }
+
 
     // method for return the size of the list.
     public int count(){
         return size;
+    }
+
+    public Node getNodeForVal(int data){
+        Node temp = head;
+        while(temp != null && temp.data != data){
+            temp = temp.next;
+        }
+        return temp;
     }
 
 
