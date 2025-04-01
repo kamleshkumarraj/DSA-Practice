@@ -135,6 +135,12 @@ public class List {
         this.deleteAtIdx(idx);
     }
 
+    public void printListNode(Node temp){
+        if(temp == null) return;
+        System.out.print(temp.data+" ");
+        printListNode(temp.next);
+    }
+
     // recursive print the reverse list.
     public void printReverseList(Node temp){
         if(temp == null) return;
@@ -152,6 +158,10 @@ public class List {
         for(int i=1; i<=idx; i++) temp = temp.next;
         temp.data = newVal;
         return;
+    }
+
+    public Node getHead(){
+        return  head;
     }
 
 
